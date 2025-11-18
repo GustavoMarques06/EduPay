@@ -1,7 +1,16 @@
-﻿namespace EduPay.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EduPay.Models
 {
     public class Aluno
     {
+        public int Id { get; set; }
+        [Required]
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public DateOnly DataNascimento { get; set; }
 
+        public int MatriculaId { get; set; }
+        public Matricula matriculas{ get; set; }
     }
 }
