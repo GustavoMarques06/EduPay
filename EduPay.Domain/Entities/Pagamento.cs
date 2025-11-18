@@ -9,7 +9,7 @@
 
 
         public int AlunoId { get; set; }
-        public Aluno alunos{ get; set; }
+        public AlunoDTO alunos{ get; set; }
 
         public int MatriculaId { get; set; }
         public Matricula matricula{ get; set; }
