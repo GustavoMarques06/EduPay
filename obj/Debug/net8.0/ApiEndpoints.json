@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "GetAll",
+    "RelativePath": "api/Curso",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "Create",
+    "RelativePath": "api/Curso",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "curso",
+        "Type": "EduPay.Domain.Entities.Curso",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

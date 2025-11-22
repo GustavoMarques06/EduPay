@@ -1,4 +1,4 @@
-@EduPay_HostAddress = http://localhost:5073
+@EduPay_HostAddress = http://localhost:5271
 
 GET {{EduPay_HostAddress}}/weatherforecast/
 Accept: application/json

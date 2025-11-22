@@ -1,5 +1,10 @@
 
-using EduPay.Data;
+using EduPay.Application.Interface;
+using EduPay.Application.Service;
+using EduPay.Infrastructure.Data;
+using EduPay.Infrastructure.Interface;
+using EduPay.Infrastructure.Repositories;
+using EduPay.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduPay
@@ -9,12 +14,15 @@ namespace EduPay
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<EduPayContext>(options =>
+               options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add services to the container.
-            builder.Services.AddDbContext<EduPayContext>(options 
-                => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
+            builder.Services.AddScoped(typeof(IEduPayGenericRepository<>), typeof(EduPayGenericRepository<>));
+            
+            builder.Services.AddScoped<CursoService>();
+            builder.Services.AddScoped<ICursoService, CursoService>();
+            builder.Services.AddScoped<ICursoRepository, CursoRepository>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
