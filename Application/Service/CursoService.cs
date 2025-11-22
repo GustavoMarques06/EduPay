@@ -12,17 +12,6 @@ namespace EduPay.Application.Service
         {
             _repo = repo;
         }
-
-        public async Task<Curso> CreateAsync(Curso curso)
-        {
-            return await _repo.PostAsync(curso);
-        }
-
-        public async Task DeleteAsync(int id)
-        {
-            await _repo.DeleteAsync(id);
-        }
-
         public async Task<List<Curso>> GetAllAsync()
         {
             return (await _repo.GetAllAsync()).ToList();
@@ -33,11 +22,15 @@ namespace EduPay.Application.Service
             return await _repo.GetByIdAsync(id);
         }
 
-        public Task<Curso> GetByNameAsync(string nome)
+        public async Task<Curso> GetByNameAsync(string nome)
         {
-            throw new NotImplementedException();
+            return await _repo.GetByNameAsync(nome);
         }
 
+        public async Task<Curso> CreateAsync(Curso curso)
+        {
+            return await _repo.PostAsync(curso);
+        }
         public async Task<Curso> UpdateAsync(int id, Curso curso)
         {
             var existe = await _repo.GetByIdAsync(id);
@@ -49,5 +42,12 @@ namespace EduPay.Application.Service
 
             return await _repo.UpdateAsync(existe);
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repo.DeleteAsync(id);
+        }
+
+
     }
 }
