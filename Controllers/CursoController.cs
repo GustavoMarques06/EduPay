@@ -1,7 +1,9 @@
 ﻿using EduPay.Application.Service;
 using EduPay.Domain.Entities;
+using EduPay.Infrastructure.Data;
 using EduPay.Infrastructure.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,11 +13,13 @@ namespace EduPay.Controllers
     [ApiController]
     public class CursoController : ControllerBase
     {
+        private readonly EduPayContext _context;
         private readonly CursoService _service;
 
-        public CursoController(CursoService service)
+        public CursoController(EduPayContext context, CursoService service)
         {
             _service = service;
+            _context = context;
         }
 
         // GET: api/cursos
@@ -84,6 +88,24 @@ namespace EduPay.Controllers
 
             await _service.DeleteAsync(id);
             return Ok(new { Message = "Curso deletado com sucesso." });
+        }
+
+        //Adicionar/Relacionar a turma com curso
+        [HttpPost("{Id_curso}/turmas")]
+        public async Task<IActionResult> CriarTurma(int cursoId, [FromBody] Turma turma)
+        {
+            var curso = await _context.Cursos.FindAsync(cursoId);
+
+            if (curso == null)
+                return NotFound("Curso não encontrado");
+
+            // 💥 (IMPORTANTE) Vincular a FK manualmente
+            turma.Id_curso = cursoId;
+
+            _context.Turmas.Add(turma);
+            await _context.SaveChangesAsync();
+
+            return Ok(turma);
         }
     }
 }

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\EduPay\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\controllers\\alunoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:controllers\\alunoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\controllers\\cursocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:controllers\\cursocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CursoController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\CursoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CursoController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\CursoController.cs",
+              "RelativeToolTip": "Controllers\\CursoController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T00:55:23.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AlunosController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\AlunosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AlunosController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\AlunosController.cs",
+              "RelativeToolTip": "Controllers\\AlunosController.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAzwFcAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T00:54:37.915Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EduPay")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84bf6c836829d0ab1ef8d59e08c3976121bc93e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("EduPay")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EduPay")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

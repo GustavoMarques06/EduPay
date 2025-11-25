@@ -20,9 +20,21 @@ namespace EduPay
             // Add services to the container.
             builder.Services.AddScoped(typeof(IEduPayGenericRepository<>), typeof(EduPayGenericRepository<>));
             
+            //Escopos para Curso.
             builder.Services.AddScoped<CursoService>();
             builder.Services.AddScoped<ICursoService, CursoService>();
             builder.Services.AddScoped<ICursoRepository, CursoRepository>();
+
+            //Escopos para Turma.
+            builder.Services.AddScoped<TurmaService>();
+            builder.Services.AddScoped<ITurmaService, TurmaService>();
+            builder.Services.AddScoped<ITurmaRepository, TurmaRepository>();
+
+            //Escopos para Matricula
+            builder.Services.AddScoped<MatriculaService>();
+            builder.Services.AddScoped<IMatriculaService, MatriculaService>();
+            builder.Services.AddScoped<IMatriculaRepository, MatriculaRepository>();
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

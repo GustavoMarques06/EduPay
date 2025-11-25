@@ -2,7 +2,7 @@
   {
     "ContainingType": "EduPay.Controllers.CursoController",
     "Method": "GetAll",
-    "RelativePath": "api/Curso",
+    "RelativePath": "api/cursos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -12,7 +12,7 @@
   {
     "ContainingType": "EduPay.Controllers.CursoController",
     "Method": "Create",
-    "RelativePath": "api/Curso",
+    "RelativePath": "api/cursos",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -20,6 +20,295 @@
       {
         "Name": "curso",
         "Type": "EduPay.Domain.Entities.Curso",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "CriarTurma",
+    "RelativePath": "api/cursos/{Id_curso}/turmas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cursoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "turma",
+        "Type": "EduPay.Domain.Entities.Turma",
+        "IsRequired": true
+      },
+      {
+        "Name": "Id_curso",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "GetById",
+    "RelativePath": "api/cursos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "Put",
+    "RelativePath": "api/cursos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "curso",
+        "Type": "EduPay.Domain.Entities.Curso",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "Delete",
+    "RelativePath": "api/cursos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "GetByNome",
+    "RelativePath": "api/cursos/buscar/{nome}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nome",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.MatriculasController",
+    "Method": "GetMatriculas",
+    "RelativePath": "api/matricula",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EduPay.Domain.Entities.Matricula, EduPay, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EduPay.Controllers.MatriculasController",
+    "Method": "Create",
+    "RelativePath": "api/matricula",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "matricula",
+        "Type": "EduPay.Domain.Entities.Matricula",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.MatriculasController",
+    "Method": "GetMatricula",
+    "RelativePath": "api/matricula/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EduPay.Domain.Entities.Matricula",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EduPay.Controllers.MatriculasController",
+    "Method": "PutMatricula",
+    "RelativePath": "api/matricula/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "matricula",
+        "Type": "EduPay.Domain.Entities.Matricula",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.MatriculasController",
+    "Method": "DeleteMatricula",
+    "RelativePath": "api/matricula/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.TurmasController",
+    "Method": "GetAll",
+    "RelativePath": "api/turma",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.TurmasController",
+    "Method": "Create",
+    "RelativePath": "api/turma",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "turma",
+        "Type": "EduPay.Domain.Entities.Turma",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.TurmasController",
+    "Method": "GetById",
+    "RelativePath": "api/turma/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.TurmasController",
+    "Method": "Put",
+    "RelativePath": "api/turma/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "turma",
+        "Type": "EduPay.Domain.Entities.Turma",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.TurmasController",
+    "Method": "Delete",
+    "RelativePath": "api/turma/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.TurmasController",
+    "Method": "GetByNome",
+    "RelativePath": "api/turma/buscar/{nome}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nome",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
