@@ -27,9 +27,9 @@ namespace EduPay.Controllers
 
         // GET: api/Alunos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Aluno>>> GetAlunos()
+        public async Task<ActionResult<IEnumerable<Aluno>>> GetMatriculas()
         {
-            return await _context.Alunos.ToListAsync();
+            return Ok(await _service.GetAllAsync());
         }
 
         // GET: api/Alunos/5
@@ -80,12 +80,15 @@ namespace EduPay.Controllers
         // POST: api/Alunoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Aluno>> PostAluno(Aluno aluno)
+        public async Task<IActionResult> Create([FromBody] Aluno aluno)
         {
-            _context.Alunos.Add(aluno);
-            await _context.SaveChangesAsync();
+            if (aluno == null)
+                return BadRequest("Corpo da requisição inválido.");
 
-            return CreatedAtAction("GetAluno", new { id = aluno.Id }, aluno);
+            aluno.Matricula = null;
+
+            await _service.CreateAsync(aluno);
+            return Ok();
         }
 
         // DELETE: api/Alunoes/5

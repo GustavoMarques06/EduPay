@@ -16,6 +16,9 @@ namespace EduPay.Domain.Entities
         public int Id_matricula { get; set; }
         
         //Referencia de Navegação para Matricula
-        public Matricula Matricula { get; set; }
+        public Matricula? Matricula { get; set; }
+
+        [JsonIgnore]
+        public List<Pagamento>? Pagamentos { get; set; }
     }
 }

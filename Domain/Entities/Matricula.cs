@@ -20,5 +20,8 @@ namespace EduPay.Domain.Entities
         //Coleção de Alunos
         [JsonIgnore]
         public List<Aluno>? Alunos { get; set; }
+
+        [JsonIgnore]
+        public List<Pagamento>? Pagamentos { get; set; }
     }
 }

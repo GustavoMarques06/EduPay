@@ -15,6 +15,8 @@ namespace EduPay.Infrastructure.Data
 
         public DbSet<Aluno> Alunos { get; set; }
 
+        public DbSet<Pagamento> Pagamentos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Curso>()
@@ -34,6 +36,20 @@ namespace EduPay.Infrastructure.Data
                 .WithOne(a => a.Matricula)
                 .HasForeignKey(a => a.Id_matricula)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Pagamento → Aluno (1:N)
+            modelBuilder.Entity<Pagamento>()
+                .HasOne(p => p.Aluno)
+                .WithMany(a => a.Pagamentos)
+                .HasForeignKey(p => p.Id_aluno)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Pagamento → Matricula (1:N)
+            modelBuilder.Entity<Pagamento>()
+                .HasOne(p => p.Matricula)
+                .WithMany(m => m.Pagamentos)
+                .HasForeignKey(p => p.Id_matricula)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 

@@ -4,6 +4,7 @@ using EduPay.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduPay.Migrations
 {
     [DbContext(typeof(EduPayContext))]
-    partial class EduPayContextModelSnapshot : ModelSnapshot
+    [Migration("20251126184346_Add_Alunos_table")]
+    partial class Add_Alunos_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,39 +98,6 @@ namespace EduPay.Migrations
                     b.ToTable("Matriculas");
                 });
 
-            modelBuilder.Entity("EduPay.Domain.Entities.Pagamento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Cod_transacao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateOnly>("Data_pagamento")
-                        .HasColumnType("date");
-
-                    b.Property<int>("Id_aluno")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id_matricula")
-                        .HasColumnType("int");
-
-                    b.Property<double?>("Valor")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Id_aluno");
-
-                    b.HasIndex("Id_matricula");
-
-                    b.ToTable("Pagamentos");
-                });
-
             modelBuilder.Entity("EduPay.Domain.Entities.Turma", b =>
                 {
                     b.Property<int>("Id")
@@ -175,25 +145,6 @@ namespace EduPay.Migrations
                     b.Navigation("Turma");
                 });
 
-            modelBuilder.Entity("EduPay.Domain.Entities.Pagamento", b =>
-                {
-                    b.HasOne("EduPay.Domain.Entities.Aluno", "Aluno")
-                        .WithMany("Pagamentos")
-                        .HasForeignKey("Id_aluno")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("EduPay.Domain.Entities.Matricula", "Matricula")
-                        .WithMany("Pagamentos")
-                        .HasForeignKey("Id_matricula")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Aluno");
-
-                    b.Navigation("Matricula");
-                });
-
             modelBuilder.Entity("EduPay.Domain.Entities.Turma", b =>
                 {
                     b.HasOne("EduPay.Domain.Entities.Curso", "Curso")
@@ -205,11 +156,6 @@ namespace EduPay.Migrations
                     b.Navigation("Curso");
                 });
 
-            modelBuilder.Entity("EduPay.Domain.Entities.Aluno", b =>
-                {
-                    b.Navigation("Pagamentos");
-                });
-
             modelBuilder.Entity("EduPay.Domain.Entities.Curso", b =>
                 {
                     b.Navigation("turmas");
@@ -218,8 +164,6 @@ namespace EduPay.Migrations
             modelBuilder.Entity("EduPay.Domain.Entities.Matricula", b =>
                 {
                     b.Navigation("Alunos");
-
-                    b.Navigation("Pagamentos");
                 });
 
             modelBuilder.Entity("EduPay.Domain.Entities.Turma", b =>

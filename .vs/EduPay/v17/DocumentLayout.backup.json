@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\EduPay\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\controllers\\alunoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:controllers\\alunoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\migrations\\20251127013306_add_pagamento_table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:migrations\\20251127013306_add_pagamento_table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\controllers\\pagamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:controllers\\pagamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AlunoesController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\AlunoesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AlunoesController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\AlunoesController.cs",
-              "RelativeToolTip": "Controllers\\AlunoesController.cs",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAswC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T01:37:12.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20251127013306_add_pagamento_table.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Migrations\\20251127013306_add_pagamento_table.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251127013306_add_pagamento_table.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Migrations\\20251127013306_add_pagamento_table.cs",
+              "RelativeToolTip": "Migrations\\20251127013306_add_pagamento_table.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-25T00:54:37.915Z",
+              "WhenOpened": "2025-11-27T01:33:06.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PagamentosController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\PagamentosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PagamentosController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\PagamentosController.cs",
+              "RelativeToolTip": "Controllers\\PagamentosController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwB8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T01:27:16.225Z",
               "EditorCaption": ""
             }
           ]

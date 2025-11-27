@@ -35,6 +35,16 @@ namespace EduPay
             builder.Services.AddScoped<IMatriculaService, MatriculaService>();
             builder.Services.AddScoped<IMatriculaRepository, MatriculaRepository>();
 
+            //Escopos para Aluno
+            builder.Services.AddScoped<AlunoService>();
+            builder.Services.AddScoped<IAlunoService, AlunoService>();
+            builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
+
+            //Escopos para Pagamento
+            builder.Services.AddScoped<PagamentoService>();
+            builder.Services.AddScoped<IPagamentoService, PagamentoService>();
+            builder.Services.AddScoped<IPagamentoRepository, PagamentoRepository>();
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
