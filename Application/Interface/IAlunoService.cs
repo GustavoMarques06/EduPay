@@ -2,13 +2,9 @@
 
 namespace EduPay.Application.Interface
 {
-    public interface IAlunoService
+    public interface IAlunoService : IEduPayGenericService<Aluno>
     {
-        Task<List<Aluno>> GetAllAsync();
-        Task<Aluno> GetByIdAsync(int id);
         Task<Aluno> GetByNameAsync(string nome);
-        Task<Aluno> CreateAsync(Aluno aluno);
         Task<Aluno> UpdateAsync(int id, Aluno aluno);
-        Task DeleteAsync(int id);
     }
 }
