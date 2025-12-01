@@ -521,6 +521,32 @@
   },
   {
     "ContainingType": "EduPay.Controllers.PagamentosController",
+    "Method": "GetByCode",
+    "RelativePath": "api/pagamentos/CodigoTransacao/{Cod_transacao}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Cod_transacao",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EduPay.Domain.Entities.Pagamento",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EduPay.Controllers.PagamentosController",
     "Method": "FiltrarPorValor",
     "RelativePath": "api/pagamentos/filtrar",
     "HttpMethod": "GET",

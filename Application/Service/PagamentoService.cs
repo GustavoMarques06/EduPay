@@ -74,7 +74,7 @@ namespace EduPay.Application.Service
                 return null;
 
 
-            existe.Cod_transacao = pagamento.Cod_transacao;
+            existe.Valor = pagamento.Valor;
             existe.Data_pagamento = pagamento.Data_pagamento;
 
             return await _repo.UpdateAsync(existe);

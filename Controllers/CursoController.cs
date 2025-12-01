@@ -15,15 +15,13 @@ namespace EduPay.Controllers
     [ApiController]
     public class CursoController : ControllerBase
     {
-        private readonly EduPayContext _context;
         private readonly CursoService _service;
         private readonly IMapper _mapper;
 
 
-        public CursoController(EduPayContext context, CursoService service, IMapper mapper)
+        public CursoController(CursoService service, IMapper mapper)
         {
             _service = service;
-            _context = context;
             _mapper = mapper;
         }
 
@@ -133,23 +131,10 @@ namespace EduPay.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, CursoUpdateDto dto)
         {
-            var cursoExistente = await _context.Cursos.FindAsync(id);
+            var atualizado = await _service.UpdateAsync(id, dto);
 
-            if (cursoExistente == null)
+            if (atualizado == null)
                 return NotFound($"Curso {id} não existe.");
-
-            Curso atualizado;
-
-            if (dto.CursoTipo == "Online")
-                atualizado = _mapper.Map<CursoOnline>(dto);
-            else
-                atualizado = _mapper.Map<CursoPresencial>(dto);
-
-            atualizado.Id = id;  // força usar o ID do endpoint
-
-            _context.Entry(cursoExistente).CurrentValues.SetValues(atualizado);
-
-            await _context.SaveChangesAsync();
 
             return Ok(atualizado);
         }

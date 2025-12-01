@@ -75,7 +75,7 @@ namespace EduPay.Controllers
                 return BadRequest("O id informado deve ser maior que zero");
             }
 
-            var aluno = await _context.Alunos.FindAsync(id);
+            var aluno = await _service.GetByIdAsync(id);
 
             if (aluno == null)
                 return NotFound($"Aluno com id {id} não foi encontrado.");
@@ -98,13 +98,11 @@ namespace EduPay.Controllers
             }
             var existe = await _service.GetByIdAsync(id);
 
-            var existe = await _service.GetByIdAsync(id);
-
             if (existe == null)
                 return NotFound($"Pagamento com id: {id} não foi encontrado.");
 
-            
-
+            return Ok("Pagamento Atualizado com Sucesso");
+        }
         // POST: api/Alunoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -134,21 +132,17 @@ namespace EduPay.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAluno(int id)
         {
-            if(id <= 0)
+            if (id <= 0)
             {
-                return BadRequest("O id inserido deve ser maior que 0");
+                return BadRequest("O id informado deve ser maior que zero");
             }
 
-            var aluno = await _context.Alunos.FindAsync(id);
-            if (aluno == null)
-            {
-                return NotFound();
-            }
+            var existe = await _service.GetByIdAsync(id);
+            if (existe == null)
+                return NotFound($"Aluno com id: {id} não foi encontrado.");
 
-            _context.Alunos.Remove(aluno);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            await _service.DeleteAsync(id);
+            return Ok(new { Message = "Aluno deletado com sucesso." });
         }
 
         private bool AlunoExists(int id)

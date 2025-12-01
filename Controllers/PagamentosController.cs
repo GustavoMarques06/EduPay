@@ -39,7 +39,7 @@ namespace EduPay.Controllers
             {
                 return BadRequest("O id inserido deve ser maior que 0");
             }
-            var pagamento = await _context.Pagamentos.FindAsync(id);
+            var pagamento = await _service.GetByIdAsync(id);
 
             if (pagamento == null)
             {
@@ -148,16 +148,17 @@ namespace EduPay.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePagamento(int id)
         {
-            var pagamento = await _context.Pagamentos.FindAsync(id);
-            if (pagamento == null)
+            if (id <= 0)
             {
-                return NotFound();
+                return BadRequest("O id informado deve ser maior que zero");
             }
 
-            _context.Pagamentos.Remove(pagamento);
-            await _context.SaveChangesAsync();
+            var existe = await _service.GetByIdAsync(id);
+            if (existe == null)
+                return NotFound($"Pagamento com id: {id} não foi encontrado.");
 
-            return NoContent();
+            await _service.DeleteAsync(id);
+            return Ok(new { Message = "Pagamento deletado com sucesso." });
         }
 
         private bool PagamentoExists(int id)

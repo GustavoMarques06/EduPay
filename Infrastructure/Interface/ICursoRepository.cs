@@ -6,5 +6,7 @@ namespace EduPay.Infrastructure.Interface
     {
         Task<IEnumerable<Turma>> GetTurmasByCursoAsync(int id_curso);
         Task<Curso> GetByNameAsync(string nome);
+
+
     }
 }

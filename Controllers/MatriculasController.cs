@@ -43,7 +43,7 @@ namespace EduPay.Controllers
             {
                 return BadRequest("O id fornecido deve ser maior que 0");
             }
-            var matricula = await _context.Matriculas.FindAsync(id);
+            var matricula = await _service.GetByIdAsync(id);
 
             if (matricula == null)
             {
@@ -136,16 +136,17 @@ namespace EduPay.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMatricula(int id)
         {
-            var matricula = await _context.Matriculas.FindAsync(id);
-            if (matricula == null)
+            if (id <= 0)
             {
-                return NotFound();
+                return BadRequest("O id informado deve ser maior que zero");
             }
 
-            _context.Matriculas.Remove(matricula);
-            await _context.SaveChangesAsync();
+            var existe = await _service.GetByIdAsync(id);
+            if (existe == null)
+                return NotFound($"Matricula com id: {id} não foi encontrado.");
 
-            return NoContent();
+            await _service.DeleteAsync(id);
+            return Ok(new { Message = "Matricula deletada com sucesso." });
         }
 
         private bool MatriculaExists(int id)
