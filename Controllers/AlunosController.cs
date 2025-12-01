@@ -97,30 +97,14 @@ namespace EduPay.Controllers
                 return BadRequest("O id informado deve ser maior que zero");
             }
 
-            if (id != aluno.Id)
-            {
-                return BadRequest("Não há aluno com este id");
-            }
+            var existe = await _service.GetByIdAsync(id);
 
-            _context.Entry(aluno).State = EntityState.Modified;
+            if (existe == null)
+                return NotFound($"Pagamento com id: {id} não foi encontrado.");
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AlunoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _service.UpdateAsync(id, aluno);
 
-            return NoContent();
+            return Ok(new { Message = "Pagamento atualizado com sucesso." });
         }
 
         // POST: api/Alunoes

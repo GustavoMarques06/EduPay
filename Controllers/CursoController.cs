@@ -1,5 +1,7 @@
-﻿using EduPay.Application.Service;
+﻿using AutoMapper;
+using EduPay.Application.Service;
 using EduPay.Domain.Entities;
+using EduPay.DTO;
 using EduPay.Infrastructure.Data;
 using EduPay.Infrastructure.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +17,14 @@ namespace EduPay.Controllers
     {
         private readonly EduPayContext _context;
         private readonly CursoService _service;
+        private readonly IMapper _mapper;
 
-        public CursoController(EduPayContext context, CursoService service)
+
+        public CursoController(EduPayContext context, CursoService service, IMapper mapper)
         {
             _service = service;
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/cursos
@@ -126,30 +131,27 @@ namespace EduPay.Controllers
 
         // PUT: api/cursos/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Curso curso)
+        public async Task<IActionResult> Put(int id, CursoUpdateDto dto)
         {
-            if (id <= 0)
-            {
-                return BadRequest("O id informado deve ser maior que zero");
-            }
+            var cursoExistente = await _context.Cursos.FindAsync(id);
 
-            if (curso == null)
-                return BadRequest("O corpo da requisição é inválido.");
+            if (cursoExistente == null)
+                return NotFound($"Curso {id} não existe.");
 
-            if (string.IsNullOrWhiteSpace(curso.Nome))
-                return BadRequest("O nome do curso não pode ser vazio.");
+            Curso atualizado;
 
-            if (curso.CargaHoraria <= 0)
-                return BadRequest("A carga horária deve ser maior que zero.");
+            if (dto.CursoTipo == "Online")
+                atualizado = _mapper.Map<CursoOnline>(dto);
+            else
+                atualizado = _mapper.Map<CursoPresencial>(dto);
 
-            var existe = await _service.GetByIdAsync(id);
+            atualizado.Id = id;  // força usar o ID do endpoint
 
-            if (existe == null)
-                return NotFound($"Curso com id: {id} não foi encontrado.");
+            _context.Entry(cursoExistente).CurrentValues.SetValues(atualizado);
 
-            await _service.UpdateAsync(id, curso);
+            await _context.SaveChangesAsync();
 
-            return Ok(new { Message = "Curso atualizado com sucesso." });
+            return Ok(atualizado);
         }
 
         // DELETE: api/cursos/5

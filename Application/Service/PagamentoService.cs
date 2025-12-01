@@ -73,6 +73,7 @@ namespace EduPay.Application.Service
             if (existe == null)
                 return null;
 
+
             existe.Cod_transacao = pagamento.Cod_transacao;
             existe.Data_pagamento = pagamento.Data_pagamento;
 

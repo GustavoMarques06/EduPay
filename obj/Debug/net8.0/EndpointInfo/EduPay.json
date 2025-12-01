@@ -301,17 +301,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Curso"
+                "$ref": "#/components/schemas/CursoUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Curso"
+                "$ref": "#/components/schemas/CursoUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Curso"
+                "$ref": "#/components/schemas/CursoUpdateDto"
               }
             }
           }
@@ -382,6 +382,68 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/cursos/online": {
+      "post": {
+        "tags": [
+          "Curso"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CursoOnline"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CursoOnline"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CursoOnline"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/cursos/presencial": {
+      "post": {
+        "tags": [
+          "Curso"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CursoPresencial"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CursoPresencial"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CursoPresencial"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1078,7 +1140,8 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "readOnly": true
           },
           "nome": {
             "type": "string",
@@ -1113,6 +1176,118 @@
           "cargaHoraria": {
             "type": "integer",
             "format": "int32"
+          },
+          "cursoTipo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CursoOnline": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "cargaHoraria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cursoTipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "modulo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataLancamento": {
+            "type": "string",
+            "format": "date"
+          },
+          "plataforma": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CursoPresencial": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "cargaHoraria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cursoTipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "instituicao": {
+            "type": "string",
+            "nullable": true
+          },
+          "sala": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CursoUpdateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "cargaHoraria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cursoTipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "modulo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dataLancamento": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "plataforma": {
+            "type": "string",
+            "nullable": true
+          },
+          "instituicao": {
+            "type": "string",
+            "nullable": true
+          },
+          "sala": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

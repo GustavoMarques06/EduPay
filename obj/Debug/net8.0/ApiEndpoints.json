@@ -186,8 +186,8 @@
         "IsRequired": true
       },
       {
-        "Name": "curso",
-        "Type": "EduPay.Domain.Entities.Curso",
+        "Name": "dto",
+        "Type": "EduPay.DTO.CursoUpdateDto",
         "IsRequired": true
       }
     ],
@@ -236,6 +236,38 @@
       {
         "Name": "nome",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "CreateOnline",
+    "RelativePath": "api/cursos/online",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "curso",
+        "Type": "EduPay.Domain.Entities.CursoOnline",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "CreatePresencial",
+    "RelativePath": "api/cursos/presencial",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "curso",
+        "Type": "EduPay.Domain.Entities.CursoPresencial",
         "IsRequired": true
       }
     ],

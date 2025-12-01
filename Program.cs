@@ -1,4 +1,4 @@
-
+using AutoMapper;
 using EduPay.Application.Interface;
 using EduPay.Application.Service;
 using EduPay.Infrastructure.Data;
@@ -6,6 +6,7 @@ using EduPay.Infrastructure.Interface;
 using EduPay.Infrastructure.Repositories;
 using EduPay.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EduPay
 {
@@ -16,6 +17,9 @@ namespace EduPay
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<EduPayContext>(options =>
                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
             // Add services to the container.
             builder.Services.AddScoped(typeof(IEduPayGenericRepository<>), typeof(EduPayGenericRepository<>));

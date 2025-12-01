@@ -457,3 +457,5 @@ C:\Users\Usuario\Desktop\EduPay\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microso
 C:\Users\Usuario\Desktop\EduPay\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\Usuario\Desktop\EduPay\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Usuario\Desktop\EduPay\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\Usuario\Desktop\EduPay\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Usuario\Desktop\EduPay\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -24,7 +24,6 @@ namespace EduPay.Controllers
             _service = service;
         }
 
-        // GET: api/Pagamentos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pagamento>>> GetPagamentos()
         {
@@ -32,7 +31,7 @@ namespace EduPay.Controllers
             return Ok(pagamentos);
         }
 
-        // GET: api/Pagamentos/5
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Pagamento>> GetPagamento(int id)
         {
@@ -50,6 +49,7 @@ namespace EduPay.Controllers
             return pagamento;
         }
 
+
         [HttpGet("alunos/{alunoId}/total")]
         public async Task<IActionResult> GetTotalPorAluno(int alunoId)
         {
@@ -61,7 +61,7 @@ namespace EduPay.Controllers
             return Ok(new { alunoId, total });
         }
 
-        // 3B — Total pago por matrícula
+        
         [HttpGet("matriculas/{matriculaId}/total")]
         public async Task<IActionResult> GetTotalPorMatricula(int matriculaId)
         {
@@ -73,7 +73,7 @@ namespace EduPay.Controllers
             return Ok(new { matriculaId, total });
         }
 
-        // 3C — Pagamentos por período
+        
         [HttpGet("periodo")]
         public async Task<IActionResult> GetPorPeriodo(
             [FromQuery] DateOnly inicio,
@@ -83,7 +83,7 @@ namespace EduPay.Controllers
             return Ok(lista);
         }
 
-        // 3E — Filtrar por valor
+        
         [HttpGet("filtrar")]
         public async Task<IActionResult> FiltrarPorValor(
             [FromQuery] double? min,
@@ -98,30 +98,19 @@ namespace EduPay.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPagamento(int id, Pagamento pagamento)
         {
-            if (id != pagamento.Id)
+            if (id <= 0)
             {
-                return BadRequest();
+                return BadRequest("O id informado deve ser maior que zero");
             }
 
-            _context.Entry(pagamento).State = EntityState.Modified;
+            var existe = await _service.GetByIdAsync(id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PagamentoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            if (existe == null)
+                return NotFound($"Pagamento com id: {id} não foi encontrado.");
 
-            return NoContent();
+            await _service.UpdateAsync(id, pagamento);
+
+            return Ok(new { Message = "Pagamento atualizado com sucesso." });
         }
 
         // POST: api/Pagamentos

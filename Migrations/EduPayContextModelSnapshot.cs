@@ -62,6 +62,11 @@ namespace EduPay.Migrations
                     b.Property<int>("CargaHoraria")
                         .HasColumnType("int");
 
+                    b.Property<string>("CursoTipo")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -69,6 +74,10 @@ namespace EduPay.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cursos");
+
+                    b.HasDiscriminator<string>("CursoTipo").HasValue("Curso");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("EduPay.Domain.Entities.Matricula", b =>
@@ -116,7 +125,7 @@ namespace EduPay.Migrations
                     b.Property<int>("Id_matricula")
                         .HasColumnType("int");
 
-                    b.Property<double?>("Valor")
+                    b.Property<double>("Valor")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
@@ -151,6 +160,38 @@ namespace EduPay.Migrations
                     b.HasIndex("Id_curso");
 
                     b.ToTable("Turmas");
+                });
+
+            modelBuilder.Entity("EduPay.Domain.Entities.CursoOnline", b =>
+                {
+                    b.HasBaseType("EduPay.Domain.Entities.Curso");
+
+                    b.Property<DateOnly>("DataLancamento")
+                        .HasColumnType("date");
+
+                    b.Property<int>("Modulo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Plataforma")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Online");
+                });
+
+            modelBuilder.Entity("EduPay.Domain.Entities.CursoPresencial", b =>
+                {
+                    b.HasBaseType("EduPay.Domain.Entities.Curso");
+
+                    b.Property<string>("Instituicao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sala")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Presencial");
                 });
 
             modelBuilder.Entity("EduPay.Domain.Entities.Aluno", b =>

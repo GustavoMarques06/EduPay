@@ -94,30 +94,19 @@ namespace EduPay.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMatricula(int id, Matricula matricula)
         {
-            if (id != matricula.Id)
+            if (id <= 0)
             {
-                return BadRequest($"Não há matricula com o id {id}");
+                return BadRequest("O id informado deve ser maior que zero");
             }
 
-            _context.Entry(matricula).State = EntityState.Modified;
+            var existe = await _service.GetByIdAsync(id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MatriculaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            if (existe == null)
+                return NotFound($"Pagamento com id: {id} não foi encontrado.");
 
-            return NoContent();
+            await _service.UpdateAsync(id, matricula);
+
+            return Ok(new { Message = "Pagamento atualizado com sucesso." });
         }
 
         // POST: api/Matriculas
