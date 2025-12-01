@@ -143,9 +143,6 @@ namespace EduPay.Controllers
             if (pagamento == null)
                 return BadRequest("Corpo da requisição inválido.");
 
-            // Evita o EF tentar criar objetos de navegação
-            pagamento.Aluno = null;
-            pagamento.Matricula = null;
 
             var criado = await _service.CreateAsync(pagamento);
             return Ok(criado);

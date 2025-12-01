@@ -98,6 +98,32 @@ namespace EduPay.Controllers
             return Ok();
         }
 
+        [HttpPost("online")]
+        public async Task<IActionResult> CreateOnline([FromBody] CursoOnline curso)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            await _service.CreateAsync(curso);
+            return Ok(curso);
+        }
+
+        [HttpPost("presencial")]
+        public async Task<IActionResult> CreatePresencial([FromBody] CursoPresencial curso)
+        {
+            if (curso == null)
+                return BadRequest("Corpo da requisição inválido.");
+
+            if (string.IsNullOrWhiteSpace(curso.Nome))
+                return BadRequest("O nome do curso não pode ser vazio.");
+
+            if (curso.CargaHoraria <= 0)
+                return BadRequest("A carga horária deve ser maior que zero.");
+
+            await _service.CreateAsync(curso);
+            return Ok(curso);
+        }
+
         // PUT: api/cursos/5
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Curso curso)

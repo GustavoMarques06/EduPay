@@ -20,10 +20,16 @@ namespace EduPay.Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Curso>()
+                .HasDiscriminator<string>("CursoTipo")
+                .HasValue<CursoPresencial>("Presencial")
+                .HasValue<CursoOnline>("Online");
+
+            modelBuilder.Entity<Curso>()
                 .HasMany(c => c.turmas)
                 .WithOne(t => t.Curso)
                 .HasForeignKey(t => t.Id_curso)
                 .OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.Entity<Turma>()
                 .HasMany(t => t.Matriculas)
