@@ -92,6 +92,18 @@ namespace EduPay.Controllers
             var lista = await _service.FiltrarPagamentosPorValorAsync(min, max);
             return Ok(lista);
         }
+        
+        [HttpGet("CodigoTransacao/{Cod_transacao}")]
+        public async Task<ActionResult<Pagamento>> GetByCode(Guid Cod_transacao)
+        {
+            if (Cod_transacao == null)
+            {
+                return BadRequest("Codigo de transação não encontrado.");
+            }
+            var codigo = await _service.GetByCodAsync(Cod_transacao);
+            return Ok(codigo);
+        }
+
 
         // PUT: api/Pagamentos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -118,11 +130,6 @@ namespace EduPay.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Pagamento pagamento)
         {
-            if (string.IsNullOrEmpty(pagamento.Cod_transacao))
-            {
-                return BadRequest("O codigo inserido é invalido ou campo está vazio");
-            }
-
             var hoje = DateOnly.FromDateTime(DateTime.Now);
             if(pagamento.Data_pagamento > hoje)
             {

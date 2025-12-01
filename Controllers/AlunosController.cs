@@ -96,16 +96,14 @@ namespace EduPay.Controllers
             {
                 return BadRequest("O id informado deve ser maior que zero");
             }
+            var existe = await _service.GetByIdAsync(id);
 
             var existe = await _service.GetByIdAsync(id);
 
             if (existe == null)
                 return NotFound($"Pagamento com id: {id} não foi encontrado.");
 
-            await _service.UpdateAsync(id, aluno);
-
-            return Ok(new { Message = "Pagamento atualizado com sucesso." });
-        }
+            
 
         // POST: api/Alunoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

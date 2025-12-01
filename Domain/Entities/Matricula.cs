@@ -5,7 +5,7 @@ namespace EduPay.Domain.Entities
 {
     public class Matricula
     {
-        public int Id { get; set; }
+        public int Id { get;private set; }
 
         public bool status { get; set; }
 

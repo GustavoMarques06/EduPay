@@ -8,7 +8,7 @@ namespace EduPay.Infrastructure.Interface
         //Task<List<Pagamento>> GetByAlunoAsync(int idAluno);
 
         Task<List<Pagamento>> GetByMatriculaAsync(int idMatricula);
-        Task<Pagamento> GetByCodAsync(string nome);
+        Task<Pagamento> GetByCodAsync(Guid nome);
 
         //Operações Financeiras - Total, intervalo entre datas ou valores
         Task<double> GetTotalPagoPorAlunoAsync(int alunoId);

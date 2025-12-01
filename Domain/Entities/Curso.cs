@@ -4,7 +4,7 @@ namespace EduPay.Domain.Entities
 {
     public abstract class Curso
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public string Nome { get; set; }
         public int CargaHoraria { get; set; }
         public string CursoTipo { get; set; }

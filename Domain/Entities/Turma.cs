@@ -4,7 +4,7 @@ namespace EduPay.Domain.Entities
 {
     public class Turma
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public string Nome { get; set; }
         public int Periodo { get; set; }
 

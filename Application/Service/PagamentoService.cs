@@ -24,7 +24,7 @@ namespace EduPay.Application.Service
             return await _repo.GetByIdAsync(id);
         }
 
-        public async Task<Pagamento?> GetByCodAsync(string cod)
+        public async Task<Pagamento?> GetByCodAsync(Guid cod)
         {
             return await _repo.GetByCodAsync(cod);
         }

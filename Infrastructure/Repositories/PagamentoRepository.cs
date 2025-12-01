@@ -33,7 +33,7 @@ namespace EduPay.Infrastructure.Repositories
         }
 
         // Caso você queira buscar por data (exemplo)
-        public async Task<Pagamento?> GetByCodAsync(string cod)
+        public async Task<Pagamento?> GetByCodAsync(Guid cod)
         {
             return await _dbSet
                 .Include(p => p.Aluno)
