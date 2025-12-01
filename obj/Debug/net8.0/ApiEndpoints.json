@@ -529,7 +529,7 @@
     "Parameters": [
       {
         "Name": "Cod_transacao",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

@@ -4,12 +4,13 @@ namespace EduPay.Application.Interface
 {
     public interface IPagamentoService : IEduPayGenericService<Pagamento>
     {
-        Task<Pagamento> GetByCodAsync(Guid cod);
+        Task<Pagamento> GetByCodAsync(string cod);
         Task<Pagamento> UpdateAsync(int id, Pagamento pagamento);
 
         //Task<Aluno> GetAlunoByPagamentoAsync(int idPagamento);
 
         Task<List<Pagamento>> GetByMatriculaAsync(int idMatricula);
+        Task<List<Pagamento>> GetPagamentosByAlunoAsync(int id);
 
         Task<double> GetTotalPagoPorAlunoAsync(int alunoId);
         Task<double> GetTotalPagoPorMatriculaAsync(int matriculaId);

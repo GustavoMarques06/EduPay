@@ -950,8 +950,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           }
         ],
@@ -1363,7 +1362,6 @@
           },
           "cod_transacao": {
             "type": "string",
-            "format": "uuid",
             "nullable": true,
             "readOnly": true
           },

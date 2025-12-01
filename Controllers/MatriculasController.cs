@@ -16,13 +16,13 @@ namespace EduPay.Controllers
     [ApiController]
     public class MatriculasController : ControllerBase
     {
-        private readonly EduPayContext _context;
+        
         private readonly MatriculaService _service;
         private readonly PagamentoService _pagamentoservice;
 
-        public MatriculasController(EduPayContext context, MatriculaService service, PagamentoService pagamentoservice)
+        public MatriculasController(MatriculaService service, PagamentoService pagamentoservice)
         {
-            _context = context;
+            
             _service = service;
             _pagamentoservice = pagamentoservice;
         }
@@ -149,9 +149,5 @@ namespace EduPay.Controllers
             return Ok(new { Message = "Matricula deletada com sucesso." });
         }
 
-        private bool MatriculaExists(int id)
-        {
-            return _context.Matriculas.Any(e => e.Id == id);
-        }
     }
 }

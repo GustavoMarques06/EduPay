@@ -15,12 +15,12 @@ namespace EduPay.Controllers
     [ApiController]
     public class PagamentosController : ControllerBase
     {
-        private readonly EduPayContext _context;
+        
         private readonly PagamentoService _service;
 
-        public PagamentosController(EduPayContext context, PagamentoService service)
+        public PagamentosController(PagamentoService service)
         {
-            _context = context;
+            
             _service = service;
         }
 
@@ -94,7 +94,7 @@ namespace EduPay.Controllers
         }
         
         [HttpGet("CodigoTransacao/{Cod_transacao}")]
-        public async Task<ActionResult<Pagamento>> GetByCode(Guid Cod_transacao)
+        public async Task<ActionResult<Pagamento>> GetByCode(string Cod_transacao)
         {
             if (Cod_transacao == null)
             {
@@ -161,9 +161,6 @@ namespace EduPay.Controllers
             return Ok(new { Message = "Pagamento deletado com sucesso." });
         }
 
-        private bool PagamentoExists(int id)
-        {
-            return _context.Pagamentos.Any(e => e.Id == id);
-        }
+        
     }
 }

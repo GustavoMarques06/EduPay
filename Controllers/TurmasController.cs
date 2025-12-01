@@ -15,13 +15,13 @@ namespace EduPay.Controllers
     [ApiController]
     public class TurmasController : ControllerBase
     {
-        private readonly EduPayContext _context;
+        
 
         private readonly TurmaService _service;
 
-        public TurmasController(EduPayContext context, TurmaService service)
+        public TurmasController(TurmaService service)
         {
-            _context = context;
+            
             _service = service;
         }
 

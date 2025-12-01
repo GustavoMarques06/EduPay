@@ -33,7 +33,7 @@ namespace EduPay.Infrastructure.Repositories
         }
 
         // Caso você queira buscar por data (exemplo)
-        public async Task<Pagamento?> GetByCodAsync(Guid cod)
+        public async Task<Pagamento?> GetByCodAsync(string cod)
         {
             return await _dbSet
                 .Include(p => p.Aluno)
@@ -41,13 +41,11 @@ namespace EduPay.Infrastructure.Repositories
                 .FirstOrDefaultAsync(p => p.Cod_transacao == cod);
         }
 
-        public async Task<IEnumerable<Pagamento>> GetByAlunoAsync(int id_aluno)
+        
+        public async Task<List<Pagamento>> GetByAlunoAsync(int alunoId)
         {
-            return await _dbSet
-                .Include(p => p.Aluno)
-                .Include(p => p.Matricula)
-                    .ThenInclude(m => m.Turma)
-                .Where(p => p.Id_aluno == id_aluno)
+            return await _context.Pagamentos
+                .Where(p => p.Id_aluno == alunoId)
                 .ToListAsync();
         }
 

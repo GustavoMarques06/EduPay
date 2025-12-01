@@ -24,7 +24,7 @@ namespace EduPay.Application.Service
             return await _repo.GetByIdAsync(id);
         }
 
-        public async Task<Pagamento?> GetByCodAsync(Guid cod)
+        public async Task<Pagamento?> GetByCodAsync(string cod)
         {
             return await _repo.GetByCodAsync(cod);
         }
@@ -83,6 +83,12 @@ namespace EduPay.Application.Service
         public async Task DeleteAsync(int id)
         {
             await _repo.DeleteAsync(id);
+        }
+
+        public async Task<List<Pagamento>> GetPagamentosByAlunoAsync(int alunoId)
+        {
+            // apenas chama o repositório
+            return await _repo.GetByAlunoAsync(alunoId);
         }
     }
 }

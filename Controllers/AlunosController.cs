@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EduPay.Application.Interface;
+using EduPay.Application.Service;
+using EduPay.Domain.Entities;
+using EduPay.Infrastructure.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using EduPay.Domain.Entities;
-using EduPay.Infrastructure.Data;
-using EduPay.Application.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace EduPay.Controllers
 {
@@ -15,14 +16,15 @@ namespace EduPay.Controllers
     [ApiController]
     public class AlunosController : ControllerBase
     {
-        private readonly EduPayContext _context;
 
+        private readonly PagamentoService _pagamentoservice;
         private readonly AlunoService _service;
 
-        public AlunosController(EduPayContext context, AlunoService service)
+        public AlunosController(AlunoService service, PagamentoService pagamentoservice)
         {
-            _context = context;
+            
             _service = service;
+            _pagamentoservice = pagamentoservice;
         }
 
         // GET: api/Alunos
@@ -41,7 +43,7 @@ namespace EduPay.Controllers
                 return BadRequest("O id informado deve ser maior que zero");
             }
 
-            var aluno = await _context.Alunos.FindAsync(id);
+            var aluno = await _service.GetByIdAsync(id);
 
             if (aluno == null)
             {
@@ -71,18 +73,15 @@ namespace EduPay.Controllers
         public async Task<IActionResult> GetPagamentosByAluno(int id)
         {
             if (id <= 0)
-            {
                 return BadRequest("O id informado deve ser maior que zero");
-            }
 
+            
             var aluno = await _service.GetByIdAsync(id);
-
             if (aluno == null)
                 return NotFound($"Aluno com id {id} não foi encontrado.");
 
-            var pagamentos = await _context.Pagamentos
-                .Where(p => p.Id_aluno == id)
-                .ToListAsync();
+            
+            var pagamentos = await _pagamentoservice.GetPagamentosByAlunoAsync(id);
 
             return Ok(pagamentos);
         }
@@ -143,11 +142,6 @@ namespace EduPay.Controllers
 
             await _service.DeleteAsync(id);
             return Ok(new { Message = "Aluno deletado com sucesso." });
-        }
-
-        private bool AlunoExists(int id)
-        {
-            return _context.Alunos.Any(e => e.Id == id);
         }
     }
 }

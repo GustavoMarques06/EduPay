@@ -8,7 +8,7 @@ namespace EduPay.Domain.Entities
     {
         public int Id { get; private set; }
 
-        public Guid? Cod_transacao { get; private set; } = Guid.NewGuid();
+        public string Cod_transacao { get; private set; } = Guid.NewGuid().ToString();
 
         public double Valor { get; set; }
 
