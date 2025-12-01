@@ -8,7 +8,7 @@ namespace EduPay.Application.Service
     {
         private readonly IEduPayGenericRepository<T> _repo;
 
-        public EduPayGenericService(IEduPayGenericService<T> repo) 
+        public EduPayGenericService(IEduPayGenericRepository<T> repo) 
         { 
             _repo = repo;
         }

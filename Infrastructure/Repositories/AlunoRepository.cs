@@ -33,5 +33,16 @@ namespace EduPay.Infrastructure.Repositories
                 .Include(a => a.Matricula)  // Inclua aqui também
                 .FirstOrDefaultAsync(x => x.Nome.ToLower() == nome.ToLower());
         }
+
+        public async Task<Matricula?> GetMatriculaByAlunoAsync(int alunoId)
+        {
+            return await _context.Matriculas
+                .FirstOrDefaultAsync(m => m.Id ==
+                    _context.Alunos
+                        .Where(a => a.Id == alunoId)
+                        .Select(a => a.Id_matricula)
+                        .FirstOrDefault()
+                );
+        }
     }
 }

@@ -36,6 +36,11 @@ namespace EduPay.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Aluno>> GetAluno(int id)
         {
+            if (id <= 0)
+            {
+                return BadRequest("O id informado deve ser maior que zero");
+            }
+
             var aluno = await _context.Alunos.FindAsync(id);
 
             if (aluno == null)
@@ -46,14 +51,55 @@ namespace EduPay.Controllers
             return aluno;
         }
 
+        [HttpGet("{id}/matricula")]
+        public async Task<IActionResult> GetMatriculaByAluno(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("O id informado deve ser maior que zero");
+            }
+
+            var matricula = await _service.GetMatriculaByAlunoAsync(id);
+            if (matricula == null)
+                return NotFound("Este aluno não possui matrícula.");
+
+            return Ok(matricula);
+        }
+
+
+        [HttpGet("{id}/pagamentos")]
+        public async Task<IActionResult> GetPagamentosByAluno(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("O id informado deve ser maior que zero");
+            }
+
+            var aluno = await _context.Alunos.FindAsync(id);
+
+            if (aluno == null)
+                return NotFound($"Aluno com id {id} não foi encontrado.");
+
+            var pagamentos = await _context.Pagamentos
+                .Where(p => p.Id_aluno == id)
+                .ToListAsync();
+
+            return Ok(pagamentos);
+        }
+
         // PUT: api/Alunoes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAluno(int id, Aluno aluno)
         {
+            if (id <= 0)
+            {
+                return BadRequest("O id informado deve ser maior que zero");
+            }
+
             if (id != aluno.Id)
             {
-                return BadRequest();
+                return BadRequest("Não há aluno com este id");
             }
 
             _context.Entry(aluno).State = EntityState.Modified;
@@ -85,6 +131,17 @@ namespace EduPay.Controllers
             if (aluno == null)
                 return BadRequest("Corpo da requisição inválido.");
 
+            if (string.IsNullOrEmpty(aluno.Nome))
+            {
+                return BadRequest("O nome inserido é invalido ou o campo está vazio");
+            }
+
+            var hoje = DateOnly.FromDateTime(DateTime.Today);
+            if (aluno.Data_nascimento > hoje)
+            {
+                return BadRequest("Data de nascimento inserida é invalida");
+            }
+
             aluno.Matricula = null;
 
             await _service.CreateAsync(aluno);
@@ -95,6 +152,11 @@ namespace EduPay.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAluno(int id)
         {
+            if(id <= 0)
+            {
+                return BadRequest("O id inserido deve ser maior que 0");
+            }
+
             var aluno = await _context.Alunos.FindAsync(id);
             if (aluno == null)
             {

@@ -1,27 +1,21 @@
 ﻿using EduPay.Application.Interface;
 using EduPay.Domain.Entities;
 using EduPay.Infrastructure.Interface;
+using EduPay.Infrastructure.Repositories;
 
 
 namespace EduPay.Application.Service
 {
-    public class MatriculaService : IMatriculaService
+    public class MatriculaService :  EduPayGenericService<Matricula>, IMatriculaService
     {
+
         private readonly IMatriculaRepository _repo;
 
         public MatriculaService(IMatriculaRepository repo)
+                : base(repo)  // <- envia para o service genérico
         {
             _repo = repo;
-        }
-
-        public async Task<List<Matricula>> GetAllAsync()
-        {
-            return (await _repo.GetAllAsync()).ToList();
-        }
-
-        public async Task<Matricula> GetByIdAsync(int id)
-        {
-            return await _repo.GetByIdAsync(id);
+            
         }
 
         public async Task<Matricula> GetByDataAsync(DateOnly Data)
@@ -29,10 +23,11 @@ namespace EduPay.Application.Service
             return await _repo.GetByDataAsync(Data);
         }
 
-        public async Task<Matricula> CreateAsync(Matricula matricula)
+        public async Task<IEnumerable<Matricula>> GetByTurmaAsync(int idTurma)
         {
-            return await _repo.PostAsync(matricula);
+            return await _repo.GetByTurmaAsync(idTurma);
         }
+
         public async Task<Matricula> UpdateAsync(int id, Matricula matricula)
         {
             var existe = await _repo.GetByIdAsync(id);
@@ -45,9 +40,5 @@ namespace EduPay.Application.Service
             return await _repo.UpdateAsync(existe);
         }
 
-        public async Task DeleteAsync(int id)
-        {
-            await _repo.DeleteAsync(id);
-        }
     }
 }

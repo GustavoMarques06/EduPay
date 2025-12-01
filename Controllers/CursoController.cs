@@ -33,6 +33,9 @@ namespace EduPay.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
+            if (id <= 0) {
+                return BadRequest("O id informado deve ser maior que zero");
+            }
             var cursoid = await _service.GetByIdAsync(id);
             if (cursoid == null)
             {
@@ -45,6 +48,12 @@ namespace EduPay.Controllers
         [HttpGet("buscar/{nome}")]
         public async Task<IActionResult> GetByNome(string nome)
         {
+            if (string.IsNullOrEmpty(nome))
+            {
+                return BadRequest("O nome informado é invalido");
+            }
+
+
             var cursonome = await _service.GetByNameAsync(nome);
             if (cursonome == null)
             {
@@ -52,13 +61,38 @@ namespace EduPay.Controllers
             }
             return Ok(cursonome);
         }
-         
+
+        // GET: api/cursos/{id}/turmas
+        [HttpGet("{id}/turmas")]
+        public async Task<IActionResult> GetTurmasByCurso(int id)
+        {
+
+            if (id <= 0)
+            {
+                return BadRequest("O id informado deve ser maior que zero");
+            }
+
+            var curso = await _service.GetByIdAsync(id);
+            if (curso == null)
+                return NotFound($"Curso com id {id} não foi encontrado.");
+
+            var turmas = await _service.GetTurmasByCursoAsync(id);
+            return Ok(turmas);
+        }
+
+
         // POST: api/cursos
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Curso curso)
         {
             if (curso == null)
                 return BadRequest("Corpo da requisição inválido.");
+
+            if (string.IsNullOrWhiteSpace(curso.Nome))
+                return BadRequest("O nome do curso não pode ser vazio.");
+
+            if (curso.CargaHoraria <= 0)
+                return BadRequest("A carga horária deve ser maior que zero.");
 
             await _service.CreateAsync(curso);
             return Ok();
@@ -68,6 +102,20 @@ namespace EduPay.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Curso curso)
         {
+            if (id <= 0)
+            {
+                return BadRequest("O id informado deve ser maior que zero");
+            }
+
+            if (curso == null)
+                return BadRequest("O corpo da requisição é inválido.");
+
+            if (string.IsNullOrWhiteSpace(curso.Nome))
+                return BadRequest("O nome do curso não pode ser vazio.");
+
+            if (curso.CargaHoraria <= 0)
+                return BadRequest("A carga horária deve ser maior que zero.");
+
             var existe = await _service.GetByIdAsync(id);
 
             if (existe == null)
@@ -82,30 +130,18 @@ namespace EduPay.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+
+            if (id <= 0)
+            {
+                return BadRequest("O id informado deve ser maior que zero");
+            }
+
             var existe = await _service.GetByIdAsync(id);
             if (existe == null)
                 return NotFound($"Curso com id: {id} não foi encontrado.");
 
             await _service.DeleteAsync(id);
             return Ok(new { Message = "Curso deletado com sucesso." });
-        }
-
-        //Adicionar/Relacionar a turma com curso
-        [HttpPost("{Id_curso}/turmas")]
-        public async Task<IActionResult> CriarTurma(int cursoId, [FromBody] Turma turma)
-        {
-            var curso = await _context.Cursos.FindAsync(cursoId);
-
-            if (curso == null)
-                return NotFound("Curso não encontrado");
-
-            // 💥 (IMPORTANTE) Vincular a FK manualmente
-            turma.Id_curso = cursoId;
-
-            _context.Turmas.Add(turma);
-            await _context.SaveChangesAsync();
-
-            return Ok(turma);
         }
     }
 }

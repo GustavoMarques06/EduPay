@@ -6,5 +6,9 @@ namespace EduPay.Application.Interface
     {
         Task<Aluno> GetByNameAsync(string nome);
         Task<Aluno> UpdateAsync(int id, Aluno aluno);
+
+        Task<Matricula?> GetMatriculaByAlunoAsync(int alunoId);
+
+        //Task<List<Pagamento>> GetPagamentosByMatriculaAsync(int id_matricula);
     }
 }

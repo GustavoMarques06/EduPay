@@ -11,7 +11,7 @@ namespace EduPay.Infrastructure.Repository
 {
     public class EduPayGenericRepository<T> : IEduPayGenericRepository<T> where T : class
     {
-        private readonly EduPayContext _context;
+        protected readonly EduPayContext _context;
         protected readonly DbSet<T> _dbSet;
 
         public EduPayGenericRepository(EduPayContext context)

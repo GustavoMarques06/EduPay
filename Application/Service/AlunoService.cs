@@ -4,18 +4,18 @@ using EduPay.Infrastructure.Interface;
 
 namespace EduPay.Application.Service
 {
-    public class AlunoService : IAlunoService
+    public class AlunoService : EduPayGenericService<Aluno> ,IAlunoService
     {
         private readonly IAlunoRepository _repo;
+        private readonly IMatriculaRepository _matriculaRepo;
+        private readonly IPagamentoRepository _pagamentoRepo;
 
-        public AlunoService(IAlunoRepository repo)
+        public AlunoService(IAlunoRepository repo, IMatriculaRepository matriculaRepo, IPagamentoRepository pagamentoRepo)
+        : base(repo)  // <- envia para o service genérico
         {
             _repo = repo;
-        }
-
-        public async Task<List<Aluno>> GetAllAsync()
-        {
-            return (await _repo.GetAllAsync()).ToList();
+            _matriculaRepo = matriculaRepo;
+            _pagamentoRepo = pagamentoRepo;
         }
 
         public async Task<Aluno> GetByNameAsync(string nome)
@@ -23,15 +23,6 @@ namespace EduPay.Application.Service
             return await _repo.GetByNameAsync(nome);
         }
 
-        public async Task<Aluno> GetByIdAsync(int id)
-        {
-            return await _repo.GetByIdAsync(id);
-        }
-
-        public async Task<Aluno> CreateAsync(Aluno aluno)
-        {
-            return await _repo.PostAsync(aluno);
-        }
         public async Task<Aluno> UpdateAsync(int id, Aluno aluno)
         {
             var existe = await _repo.GetByIdAsync(id);
@@ -44,9 +35,10 @@ namespace EduPay.Application.Service
             return await _repo.UpdateAsync(existe);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<Matricula?> GetMatriculaByAlunoAsync(int alunoId)
         {
-            await _repo.DeleteAsync(id);
+            return await _repo.GetMatriculaByAlunoAsync(alunoId);
         }
+
     }
 }

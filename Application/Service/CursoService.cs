@@ -1,53 +1,45 @@
 ﻿using EduPay.Application.Interface;
 using EduPay.Domain.Entities;
 using EduPay.Infrastructure.Interface;
+using EduPay.Infrastructure.Repository;
 
 namespace EduPay.Application.Service
 {
-    public class CursoService : ICursoService
+    public class CursoService : EduPayGenericService<Curso>, ICursoService
     {
         private readonly ICursoRepository _repo;
 
-        public CursoService(ICursoRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<List<Curso>> GetAllAsync()
-        {
-            return (await _repo.GetAllAsync()).ToList();
-        }
+            public CursoService(ICursoRepository repo)
+                : base(repo)  // <- envia para o service genérico
+            {
+                _repo = repo;
+            }
 
-        public async Task<Curso> GetByIdAsync(int id)
-        {
-            return await _repo.GetByIdAsync(id);
-        }
+            public async Task<Curso> GetByNameAsync(string nome)
+            {
+                return await _repo.GetByNameAsync(nome);
+            }
 
-        public async Task<Curso> GetByNameAsync(string nome)
-        {
-            return await _repo.GetByNameAsync(nome);
-        }
+            public async Task<IEnumerable<Turma>> GetTurmasByCursoAsync(int id_curso)
+            {
+               return await _repo.GetTurmasByCursoAsync(id_curso);
+            }
 
-        public async Task<Curso> CreateAsync(Curso curso)
-        {
-            return await _repo.PostAsync(curso);
-        }
         public async Task<Curso> UpdateAsync(int id, Curso curso)
-        {
-            var existe = await _repo.GetByIdAsync(id);
-            if (existe == null)
-                return null;
+            {
+                var existe = await _repo.GetByIdAsync(id);
 
-            existe.Nome = curso.Nome;
-            existe.CargaHoraria = curso.CargaHoraria;
+                if (existe == null)
+                    return null;
 
-            return await _repo.UpdateAsync(existe);
-        }
+                existe.Nome = curso.Nome;
+                existe.CargaHoraria = curso.CargaHoraria;
 
-        public async Task DeleteAsync(int id)
-        {
-            await _repo.DeleteAsync(id);
-        }
-
-
+                return await _repo.UpdateAsync(existe);
+            }
     }
 }
+
+
+
+

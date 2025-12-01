@@ -3,16 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\EduPay\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\infrastructure\\repositories\\matricularepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:infrastructure\\repositories\\matricularepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\migrations\\20251127013306_add_pagamento_table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:migrations\\20251127013306_add_pagamento_table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\infrastructure\\interface\\imatricularepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:infrastructure\\interface\\imatricularepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\controllers\\pagamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:controllers\\pagamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\application\\service\\matriculaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:application\\service\\matriculaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\application\\interface\\imatriculaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:application\\interface\\imatriculaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\controllers\\alunoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:controllers\\alunoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\infrastructure\\repositories\\alunorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:infrastructure\\repositories\\alunorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\application\\interface\\ialunoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:application\\interface\\ialunoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\application\\service\\alunoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:application\\service\\alunoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|c:\\users\\usuario\\desktop\\edupay\\infrastructure\\interface\\ialunorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80DC26CE-DB31-47A3-A7D2-8E89A4639796}|EduPay.csproj|solutionrelative:infrastructure\\interface\\ialunorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,46 +46,118 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAswC4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "IMatriculaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Infrastructure\\Interface\\IMatriculaRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Interface\\IMatriculaRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Infrastructure\\Interface\\IMatriculaRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Interface\\IMatriculaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T01:37:12.438Z",
+              "WhenOpened": "2025-12-01T01:10:00.482Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20251127013306_add_pagamento_table.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Migrations\\20251127013306_add_pagamento_table.cs",
-              "RelativeDocumentMoniker": "Migrations\\20251127013306_add_pagamento_table.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Migrations\\20251127013306_add_pagamento_table.cs",
-              "RelativeToolTip": "Migrations\\20251127013306_add_pagamento_table.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "MatriculaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Infrastructure\\Repositories\\MatriculaRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\MatriculaRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Infrastructure\\Repositories\\MatriculaRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\MatriculaRepository.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAmwCYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T01:33:06.655Z",
+              "WhenOpened": "2025-12-01T01:09:54.67Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IMatriculaService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Application\\Interface\\IMatriculaService.cs",
+              "RelativeDocumentMoniker": "Application\\Interface\\IMatriculaService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Application\\Interface\\IMatriculaService.cs",
+              "RelativeToolTip": "Application\\Interface\\IMatriculaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T00:14:18.157Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PagamentosController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\PagamentosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PagamentosController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\PagamentosController.cs",
-              "RelativeToolTip": "Controllers\\PagamentosController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAgwB8AAAAiAAAAAAAAAA==",
+              "Title": "MatriculaService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Application\\Service\\MatriculaService.cs",
+              "RelativeDocumentMoniker": "Application\\Service\\MatriculaService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Application\\Service\\MatriculaService.cs",
+              "RelativeToolTip": "Application\\Service\\MatriculaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T01:27:16.225Z",
+              "WhenOpened": "2025-12-01T00:13:46.569Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AlunoService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Application\\Service\\AlunoService.cs",
+              "RelativeDocumentMoniker": "Application\\Service\\AlunoService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Application\\Service\\AlunoService.cs",
+              "RelativeToolTip": "Application\\Service\\AlunoService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAmwCgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T00:09:25.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IAlunoService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Application\\Interface\\IAlunoService.cs",
+              "RelativeDocumentMoniker": "Application\\Interface\\IAlunoService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Application\\Interface\\IAlunoService.cs",
+              "RelativeToolTip": "Application\\Interface\\IAlunoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T00:08:34.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AlunoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Infrastructure\\Repositories\\AlunoRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\AlunoRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Infrastructure\\Repositories\\AlunoRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\AlunoRepository.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAIwC0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T00:07:50.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IAlunoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Infrastructure\\Interface\\IAlunoRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Interface\\IAlunoRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Infrastructure\\Interface\\IAlunoRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Interface\\IAlunoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T00:07:01.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AlunosController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\AlunosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AlunosController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\EduPay\\Controllers\\AlunosController.cs",
+              "RelativeToolTip": "Controllers\\AlunosController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAmwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T00:02:59.488Z"
             }
           ]
         }

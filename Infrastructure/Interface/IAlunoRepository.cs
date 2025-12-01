@@ -6,5 +6,7 @@ namespace EduPay.Infrastructure.Interface
     {
         Task<IEnumerable<Aluno>> GetAllAsync();
         Task<Aluno> GetByNameAsync(string nome);
+
+        Task<Matricula?> GetMatriculaByAlunoAsync(int alunoId);
     }
 }

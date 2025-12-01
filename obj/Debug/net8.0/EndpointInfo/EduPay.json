@@ -173,6 +173,52 @@
         }
       }
     },
+    "/api/aluno/{id}/matricula": {
+      "get": {
+        "tags": [
+          "Alunos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/aluno/{id}/pagamentos": {
+      "get": {
+        "tags": [
+          "Alunos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/cursos": {
       "get": {
         "tags": [
@@ -320,48 +366,22 @@
         }
       }
     },
-    "/api/cursos/{Id_curso}/turmas": {
-      "post": {
+    "/api/cursos/{id}/turmas": {
+      "get": {
         "tags": [
           "Curso"
         ],
         "parameters": [
           {
-            "name": "cursoId",
-            "in": "query",
+            "name": "id",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "Id_curso",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Turma"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Turma"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Turma"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -516,6 +536,52 @@
         }
       },
       "delete": {
+        "tags": [
+          "Matriculas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/matricula/{id}/matriculas": {
+      "get": {
+        "tags": [
+          "Matriculas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/matricula/{id}/pagamentos": {
+      "get": {
         "tags": [
           "Matriculas"
         ],
@@ -705,6 +771,112 @@
         }
       }
     },
+    "/api/pagamentos/alunos/{alunoId}/total": {
+      "get": {
+        "tags": [
+          "Pagamentos"
+        ],
+        "parameters": [
+          {
+            "name": "alunoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/pagamentos/matriculas/{matriculaId}/total": {
+      "get": {
+        "tags": [
+          "Pagamentos"
+        ],
+        "parameters": [
+          {
+            "name": "matriculaId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/pagamentos/periodo": {
+      "get": {
+        "tags": [
+          "Pagamentos"
+        ],
+        "parameters": [
+          {
+            "name": "inicio",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "fim",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/pagamentos/filtrar": {
+      "get": {
+        "tags": [
+          "Pagamentos"
+        ],
+        "parameters": [
+          {
+            "name": "min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/turma": {
       "get": {
         "tags": [
@@ -830,6 +1002,52 @@
         }
       }
     },
+    "/api/turma/{id}/curso": {
+      "get": {
+        "tags": [
+          "Turmas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/turma/{id}/matriculas": {
+      "get": {
+        "tags": [
+          "Turmas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/turma/buscar/{nome}": {
       "get": {
         "tags": [
@@ -877,9 +1095,6 @@
           "id_matricula": {
             "type": "integer",
             "format": "int32"
-          },
-          "matricula": {
-            "$ref": "#/components/schemas/Matricula"
           }
         },
         "additionalProperties": false
@@ -919,9 +1134,6 @@
           "id_turma": {
             "type": "integer",
             "format": "int32"
-          },
-          "turma": {
-            "$ref": "#/components/schemas/Turma"
           }
         },
         "additionalProperties": false
@@ -939,8 +1151,7 @@
           },
           "valor": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "data_pagamento": {
             "type": "string",
@@ -950,15 +1161,9 @@
             "type": "integer",
             "format": "int32"
           },
-          "aluno": {
-            "$ref": "#/components/schemas/Aluno"
-          },
           "id_matricula": {
             "type": "integer",
             "format": "int32"
-          },
-          "matricula": {
-            "$ref": "#/components/schemas/Matricula"
           }
         },
         "additionalProperties": false
@@ -981,9 +1186,6 @@
           "id_curso": {
             "type": "integer",
             "format": "int32"
-          },
-          "curso": {
-            "$ref": "#/components/schemas/Curso"
           }
         },
         "additionalProperties": false

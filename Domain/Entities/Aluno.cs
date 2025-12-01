@@ -14,8 +14,9 @@ namespace EduPay.Domain.Entities
         public DateOnly Data_nascimento { get; set; }
 
         public int Id_matricula { get; set; }
-        
+
         //Referencia de Navegação para Matricula
+        [JsonIgnore]
         public Matricula? Matricula { get; set; }
 
         [JsonIgnore]

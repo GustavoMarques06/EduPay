@@ -1,4 +1,8 @@
-﻿namespace EduPay.Domain.Entities
+﻿using System.Text.Json.Serialization;
+
+
+
+namespace EduPay.Domain.Entities
 {
     public class Pagamento
     {
@@ -6,16 +10,20 @@
 
         public string Cod_transacao { get; set; }
 
-        public double? Valor { get; set; }
+        public double Valor { get; set; }
 
         public DateOnly Data_pagamento { get; set; }
 
         //Chave Estrangeira para Aluno
         public int Id_aluno { get; set; }
+
+        [JsonIgnore]
         public Aluno Aluno { get; set; }
 
         //Chave Estrangeira para Matricula
         public int Id_matricula { get; set; }
+
+        [JsonIgnore]
         public Matricula Matricula { get; set; }
 
 

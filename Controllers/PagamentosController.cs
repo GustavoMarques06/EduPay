@@ -36,6 +36,10 @@ namespace EduPay.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Pagamento>> GetPagamento(int id)
         {
+            if(id <= 0)
+            {
+                return BadRequest("O id inserido deve ser maior que 0");
+            }
             var pagamento = await _context.Pagamentos.FindAsync(id);
 
             if (pagamento == null)
@@ -44,6 +48,49 @@ namespace EduPay.Controllers
             }
 
             return pagamento;
+        }
+
+        [HttpGet("alunos/{alunoId}/total")]
+        public async Task<IActionResult> GetTotalPorAluno(int alunoId)
+        {
+            if(alunoId < 0)
+            {
+                return BadRequest("O id inserido deve ser maior que 0");
+            }
+            var total = await _service.GetTotalPagoPorAlunoAsync(alunoId);
+            return Ok(new { alunoId, total });
+        }
+
+        // 3B — Total pago por matrícula
+        [HttpGet("matriculas/{matriculaId}/total")]
+        public async Task<IActionResult> GetTotalPorMatricula(int matriculaId)
+        {
+            if(matriculaId < 0)
+            {
+                return BadRequest("O id inserido deve ser maior que 0");
+            }
+            var total = await _service.GetTotalPagoPorMatriculaAsync(matriculaId);
+            return Ok(new { matriculaId, total });
+        }
+
+        // 3C — Pagamentos por período
+        [HttpGet("periodo")]
+        public async Task<IActionResult> GetPorPeriodo(
+            [FromQuery] DateOnly inicio,
+            [FromQuery] DateOnly fim)
+        {
+            var lista = await _service.GetPagamentosPorPeriodoAsync(inicio, fim);
+            return Ok(lista);
+        }
+
+        // 3E — Filtrar por valor
+        [HttpGet("filtrar")]
+        public async Task<IActionResult> FiltrarPorValor(
+            [FromQuery] double? min,
+            [FromQuery] double? max)
+        {
+            var lista = await _service.FiltrarPagamentosPorValorAsync(min, max);
+            return Ok(lista);
         }
 
         // PUT: api/Pagamentos/5
@@ -82,6 +129,17 @@ namespace EduPay.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Pagamento pagamento)
         {
+            if (string.IsNullOrEmpty(pagamento.Cod_transacao))
+            {
+                return BadRequest("O codigo inserido é invalido ou campo está vazio");
+            }
+
+            var hoje = DateOnly.FromDateTime(DateTime.Now);
+            if(pagamento.Data_pagamento > hoje)
+            {
+                return BadRequest("Data inserida é invalida");
+            }
+
             if (pagamento == null)
                 return BadRequest("Corpo da requisição inválido.");
 

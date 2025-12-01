@@ -35,7 +35,27 @@ namespace EduPay.Infrastructure.Repositories
                 .Include(m => m.Turma)  // Inclua aqui também
                 .FirstOrDefaultAsync(x => x.data_matricula == Data);
         }
-    }
 
+        public async Task<IEnumerable<Matricula>> GetByTurmaAsync(int idTurma)
+        {
+            return await _context.Matriculas
+                .Where(m => m.Id_turma == idTurma)
+                .ToListAsync();
+        }
+
+        
+
+    }
+    /*
+     * public async Task<Matricula?> GetWithDetailsAsync(int id)
+        {
+            return await _dbSet
+                .Include(m => m.Turma)
+                .ThenInclude(t => t.Curso)
+                .Include(m => m.Alunos)
+                .Include(m => m.Pagamentos)
+                .FirstOrDefaultAsync(m => m.Id == id);
+        }
+     */
 
 }

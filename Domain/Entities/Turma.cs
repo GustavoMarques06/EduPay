@@ -12,7 +12,7 @@ namespace EduPay.Domain.Entities
         public int Id_curso { get; set; } //Chave Estrangeira
 
 
-        
+        [JsonIgnore]
         public Curso? Curso { get; set; } // Referencia de Navegação
 
         [JsonIgnore]

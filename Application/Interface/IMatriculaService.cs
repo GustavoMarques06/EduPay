@@ -6,5 +6,7 @@ namespace EduPay.Application.Interface
     {
         Task<Matricula> GetByDataAsync(DateOnly Data);
         Task<Matricula> UpdateAsync(int id, Matricula matricula);
+
+        Task<IEnumerable<Matricula>> GetByTurmaAsync(int idTurma);
     }
 }

@@ -5,6 +5,11 @@ namespace EduPay.Infrastructure.Interface
     public interface ITurmaRepository : IEduPayGenericRepository<Turma>
     {
         Task<Turma> GetByNameAsync(string nome);
-        new Task<IEnumerable<Turma>> GetAllAsync();
+        Task<IEnumerable<Turma>> GetAllAsync();
+
+        Task<IEnumerable<Matricula>> GetMatriculasByTurmaAsync(int turmaId);
+
+        Task<Curso?> GetCursoByTurmaAsync(int turmaId);
+
     }
 }

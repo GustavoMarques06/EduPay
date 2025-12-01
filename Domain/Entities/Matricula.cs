@@ -15,6 +15,7 @@ namespace EduPay.Domain.Entities
         public int Id_turma { get; set; }
 
         //Referência de Navegação para Turma
+        [JsonIgnore]
         public Turma? Turma { get; set; }
 
         //Coleção de Alunos

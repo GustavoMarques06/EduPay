@@ -99,6 +99,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EduPay.Controllers.AlunosController",
+    "Method": "GetMatriculaByAluno",
+    "RelativePath": "api/aluno/{id}/matricula",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.AlunosController",
+    "Method": "GetPagamentosByAluno",
+    "RelativePath": "api/aluno/{id}/pagamentos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EduPay.Controllers.CursoController",
     "Method": "GetAll",
     "RelativePath": "api/cursos",
@@ -119,32 +151,6 @@
       {
         "Name": "curso",
         "Type": "EduPay.Domain.Entities.Curso",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EduPay.Controllers.CursoController",
-    "Method": "CriarTurma",
-    "RelativePath": "api/cursos/{Id_curso}/turmas",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "cursoId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "turma",
-        "Type": "EduPay.Domain.Entities.Turma",
-        "IsRequired": true
-      },
-      {
-        "Name": "Id_curso",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -192,6 +198,22 @@
     "Method": "Delete",
     "RelativePath": "api/cursos/{id}",
     "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.CursoController",
+    "Method": "GetTurmasByCurso",
+    "RelativePath": "api/cursos/{id}/turmas",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -319,6 +341,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EduPay.Controllers.MatriculasController",
+    "Method": "GetMatriculasByTurma",
+    "RelativePath": "api/matricula/{id}/matriculas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.MatriculasController",
+    "Method": "GetPagamentosByMatricula",
+    "RelativePath": "api/matricula/{id}/pagamentos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EduPay.Controllers.PagamentosController",
     "Method": "GetPagamentos",
     "RelativePath": "api/pagamentos",
@@ -418,6 +472,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EduPay.Controllers.PagamentosController",
+    "Method": "GetTotalPorAluno",
+    "RelativePath": "api/pagamentos/alunos/{alunoId}/total",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alunoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.PagamentosController",
+    "Method": "FiltrarPorValor",
+    "RelativePath": "api/pagamentos/filtrar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "min",
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "max",
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.PagamentosController",
+    "Method": "GetTotalPorMatricula",
+    "RelativePath": "api/pagamentos/matriculas/{matriculaId}/total",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "matriculaId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.PagamentosController",
+    "Method": "GetPorPeriodo",
+    "RelativePath": "api/pagamentos/periodo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "inicio",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "fim",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EduPay.Controllers.TurmasController",
     "Method": "GetAll",
     "RelativePath": "api/turma",
@@ -485,6 +613,38 @@
     "Method": "Delete",
     "RelativePath": "api/turma/{id}",
     "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.TurmasController",
+    "Method": "GetCursoByTurma",
+    "RelativePath": "api/turma/{id}/curso",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EduPay.Controllers.TurmasController",
+    "Method": "GetMatriculasByTurma",
+    "RelativePath": "api/turma/{id}/matriculas",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [

@@ -8,5 +8,8 @@ namespace EduPay.Infrastructure.Interface
 
         Task<Matricula> GetByDataAsync(DateOnly Data);
 
+        Task<IEnumerable<Matricula>> GetByTurmaAsync(int idTurma);
+        //Task<Matricula?> GetWithDetailsAsync(int id);
+
     }
 }

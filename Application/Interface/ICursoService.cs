@@ -6,5 +6,9 @@ namespace EduPay.Application.Interface
     {
         Task<Curso> GetByNameAsync(string nome);
         Task<Curso> UpdateAsync(int id, Curso curso);
+
+        Task<IEnumerable<Turma>> GetTurmasByCursoAsync(int id_curso);
+        //Task<Curso> GetCursoByTurmaAsync(int idTurma);
+
     }
 }
