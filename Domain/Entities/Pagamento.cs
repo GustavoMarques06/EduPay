@@ -6,9 +6,9 @@ namespace EduPay.Domain.Entities
 {
     public class Pagamento
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
-        public string Cod_transacao { get; set; }
+        public Guid? Cod_transacao { get; private set; } = Guid.NewGuid();
 
         public double Valor { get; set; }
 
@@ -27,6 +27,6 @@ namespace EduPay.Domain.Entities
         public Matricula? Matricula { get; set; }
 
 
-
+        
     }
 }

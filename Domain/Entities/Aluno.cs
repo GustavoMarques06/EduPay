@@ -5,7 +5,7 @@ namespace EduPay.Domain.Entities
 {
     public class Aluno
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
         public string Nome { get; set; }
 
